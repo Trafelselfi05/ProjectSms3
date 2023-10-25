@@ -46,3 +46,27 @@ header {
    background-color: #C70039; 
    color: #fff;
 }
+header h1  {
+    float: left;
+}
+header ul {
+    float: right;
+}
+header ul li {
+    display: inline-block;
+}
+header ul li a {
+    padding: 20px 0;
+    display: inline-block;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+.container:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
