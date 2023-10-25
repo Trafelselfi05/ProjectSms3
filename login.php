@@ -29,7 +29,7 @@
                 $d = mysqli_fetch_object($cek);
                 $_SESSION['status_login'] = true;
                 $_SESSION['a_global'] =$d;
-               
+                $_SESSION['id'] = $d->admin_id;
 
                 echo '<script>window.location="dashboard.php"</script>';
             }else {
