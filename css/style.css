@@ -6,6 +6,9 @@
 body {
     background-color: #f8f8f8;
 }
+a {
+    color: inherit;
+}
 #bg-login {
     display: flex;
     height: 100vh;
@@ -37,4 +40,9 @@ body {
     border: none;
     cursor: pointer;
 
+}
+header {
+   border:1px solid;
+   background-color: #C70039; 
+   color: #fff;
 }
