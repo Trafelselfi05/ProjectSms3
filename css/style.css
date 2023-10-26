@@ -4,7 +4,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 body {
-    background-color: #f8f8f8;
+    background-color: #ff0303;
 }
 a {
     color: inherit;
@@ -43,7 +43,7 @@ a {
 
 }
 header {
-   background-color: #C70039; 
+   background-color: #ffffff; 
    color: #fff;
 }
 header h1  {
@@ -74,14 +74,12 @@ header ul li a {
     padding: 25px 0;
 }
 .box {
-    background-color: #fff;
+    background-color: #0044ff;
     border:1px solid #ccc;
     padding: 15px;
     box-sizing: border-box;
     margin: 10px 0;
 }
-footer {
-    padding: 15px 0;
-}
+
 
 
