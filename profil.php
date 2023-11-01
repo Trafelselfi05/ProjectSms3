@@ -29,9 +29,13 @@
         <div class="container">
             <h3>Profile</h3>
             <div class="box">
-            <form>
-            <input type="text" name="nama" placeholder="Nama Lengkap" required>
-
+            <form action="" method="POST">
+            <input type="text" name="nama" placeholder="Nama Lengkap" class="input-control" required>
+            <input type="text" name="user" placeholder="Username" class="input-control" required>
+            <input type="text" name="hp" placeholder="No Handphone" class="input-control" required>
+            <input type="email" name="email" placeholder="Email" class="input-control" required>
+            <input type="text" name="alamat" placeholder="Alamat" class="input-control" required>
+            <input type="submit" name="submit" value="Ubah Profile"class="btn">
             </form>
             </div>
         </div>
