@@ -1,14 +1,15 @@
 <?php
 session_start();
 include 'db.php'; //agar query bisa berjalan
-if($_SESSION['status_login']!= true) {
+if ($_SESSION['status_login'] != true) {
     echo '<script>window.location="login.php"</script>';
 }
-$query = mysqli_query($conn, "SELECT * FROM tb_admin WHERE admin_id = '".$_SESSION['id']."' ");
-$d  = mysqli_fetch_object($query);
+$query = mysqli_query($conn, "SELECT * FROM tb_admin WHERE admin_id = '" . $_SESSION['id'] . "' ");
+$d = mysqli_fetch_object($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,14 +37,43 @@ $d  = mysqli_fetch_object($query);
         <div class="container">
             <h3>Profile</h3>
             <div class="box">
-            <form action="" method="POST">
-            <input type="text" name="nama" placeholder="Nama Lengkap" class="input-control" value="<?php echo $d->admin_name ?>" required>
-            <input type="text" name="user" placeholder="Username" class="input-control" value="<?php echo $d->username ?>" required>
-            <input type="text" name="hp" placeholder="No Handphone" class="input-control" value="<?php echo $d->admin_telp ?>" required>
-            <input type="email" name="email" placeholder="Email" class="input-control" value="<?php echo $d->admin_email ?>" required>
-            <input type="text" name="alamat" placeholder="Alamat" class="input-control" value="<?php echo $d->admin_addres ?>" required>
-            <input type="submit" name="submit" value="Ubah Profile"class="btn">
-            </form>
+                <form action="" method="POST">
+                    <input type="text" name="nama" placeholder="Nama Lengkap" class="input-control"
+                        value="<?php echo $d->admin_name ?>" required>
+                    <input type="text" name="user" placeholder="Username" class="input-control"
+                        value="<?php echo $d->username ?>" required>
+                    <input type="text" name="hp" placeholder="No Handphone" class="input-control"
+                        value="<?php echo $d->admin_telp ?>" required>
+                    <input type="email" name="email" placeholder="Email" class="input-control"
+                        value="<?php echo $d->admin_email ?>" required>
+                    <input type="text" name="alamat" placeholder="Alamat" class="input-control"
+                        value="<?php echo $d->admin_addres ?>" required>
+                    <input type="submit" name="submit" value="Ubah Profile" class="btn">
+                </form>
+                <?php
+                if (isset($_POST['submit'])) {
+
+                    $nama = $_POST['nama'];
+                    $user = $_POST['user'];
+                    $hp = $_POST['hp'];
+                    $emai = $_POST['email'];
+                    $alamat = $_POST['alamat'];
+
+                    $update = mysqli_query($conn, "UPDATE tb_admin SET
+                    admin_name  = '" . $nama . "',
+                    username  = '" . $user . "',
+                    admin_telp = '" . $hp . "',
+                    admin_addres = '" . $alamat . "'
+                    WHERE admin_id = '" . $d->admin_id . "' ");
+
+
+                    if ($update) {
+                        echo 'berhasil';
+                    } else {
+                        echo 'gagal' . mysqli_error($conn);
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
