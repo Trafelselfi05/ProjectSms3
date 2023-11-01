@@ -34,7 +34,7 @@ if($_SESSION['status_login']!= true) {
         <div class="container">
             <h3>Dashboard</h3>
             <div class="box">
-                <h4>Selamat Datang di Toko
+                <h4>Selamat Datang di Toko Selfi
                 </h4>
             </div>
         </div>
