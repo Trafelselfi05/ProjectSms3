@@ -29,7 +29,10 @@
         <div class="container">
             <h3>Profile</h3>
             <div class="box">
+            <form>
+            <input type="text" name="nama" placeholder="Nama Lengkap" required>
 
+            </form>
             </div>
         </div>
     </div>
