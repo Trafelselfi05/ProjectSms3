@@ -53,11 +53,11 @@ $d = mysqli_fetch_object($query);
                 <?php
                 if (isset($_POST['submit'])) {
 
-                    $nama = $_POST['nama'];
+                    $nama = ucwords($_POST['nama']);
                     $user = $_POST['user'];
                     $hp = $_POST['hp'];
                     $emai = $_POST['email'];
-                    $alamat = $_POST['alamat'];
+                    $alamat = ucwords($_POST['alamat']);
 
                     $update = mysqli_query($conn, "UPDATE tb_admin SET
                     admin_name  = '" . $nama . "',
@@ -68,10 +68,46 @@ $d = mysqli_fetch_object($query);
 
 
                     if ($update) {
-                        echo 'berhasil';
+                        echo '<script>alert("Ubah data berhasil")</script>';
+                        echo '<script>window.location="profil.php"</script>';
                     } else {
                         echo 'gagal' . mysqli_error($conn);
                     }
+                }
+                ?>
+            </div>
+
+            <!--Lupa Password-->
+            <h3>Ubah Password</h3>
+            <div class="box">
+                <form action="" method="POST">
+                    <input type="password" name="pass1" placeholder="Password Baru" class="input-control" required>
+                    <input type="password" name="pass2" placeholder="Masukkan Ulang Password Baru" class="input-control" required>
+                    <input type="submit" name="ubah_password" placeholder="Ubah Password" class="btn" >
+                </form>
+                <?php
+                if (isset($_POST['ubah_password'])) {
+
+                    $pass1 = $_POST['pass1'];
+                    $pass2 = $_POST['pass2'];
+
+                    if ($pass2 != $pass1) {
+                        echo '<script>alert("Password Baru Tidak Sesuai")</script>';
+                    }else {
+
+                        $u_pass = mysqli_query($conn, "UPDATE tb_admin SET
+                        password = '" . MD5($pass1) . "'
+                        WHERE admin_id = '" . $d->admin_id . "' ");
+
+                        if ($u_pass) {
+                            echo '<script>alert("Ubah data berhasil")</script>';
+                            echo '<script>window.location="profil.php"</script>';
+                        }else {
+                            echo 'gagal' . mysqli_error($conn);
+                        }
+                    }
+
+                    
                 }
                 ?>
             </div>
