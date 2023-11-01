@@ -1,9 +1,4 @@
-<?php
-session_start();
-if($_SESSION['status_login']!= true) {
-    echo '<script>window.location="login.php"</script>';
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,10 +27,9 @@ if($_SESSION['status_login']!= true) {
     <!--Content-->
     <div class="section">
         <div class="container">
-            <h3>Dashboard</h3>
+            <h3>Profile</h3>
             <div class="box">
-                <h4>Selamat Datang di Toko
-                </h4>
+
             </div>
         </div>
     </div>

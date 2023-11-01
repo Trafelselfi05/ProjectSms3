@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 </head>
+
 
 <body id="bg-login">
     <div class="box-login">
@@ -22,7 +24,6 @@
         if (isset($_POST["submit"])) {
             session_start();
             include 'db.php';
-
             $user = $_POST["user"];
             $pass = $_POST["pass"];
 
@@ -38,7 +39,9 @@
                 echo '<script>alert("Username atau Password Anda salah!")</script>';
             }
         }
+
         ?>
+
     </div>
 </body>
 
