@@ -1,7 +1,14 @@
-
+<?php
+session_start();
+include 'db.php'; //agar query bisa berjalan
+if($_SESSION['status_login']!= true) {
+    echo '<script>window.location="login.php"</script>';
+}
+$query = mysqli_query($conn, "SELECT * FROM tb_admin WHERE admin_id = '".$_SESSION['id']."' ");
+$d  = mysqli_fetch_object($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,11 +37,11 @@
             <h3>Profile</h3>
             <div class="box">
             <form action="" method="POST">
-            <input type="text" name="nama" placeholder="Nama Lengkap" class="input-control" required>
-            <input type="text" name="user" placeholder="Username" class="input-control" required>
-            <input type="text" name="hp" placeholder="No Handphone" class="input-control" required>
-            <input type="email" name="email" placeholder="Email" class="input-control" required>
-            <input type="text" name="alamat" placeholder="Alamat" class="input-control" required>
+            <input type="text" name="nama" placeholder="Nama Lengkap" class="input-control" value="<?php echo $d->admin_name ?>" required>
+            <input type="text" name="user" placeholder="Username" class="input-control" value="<?php echo $d->username ?>" required>
+            <input type="text" name="hp" placeholder="No Handphone" class="input-control" value="<?php echo $d->admin_telp ?>" required>
+            <input type="email" name="email" placeholder="Email" class="input-control" value="<?php echo $d->admin_email ?>" required>
+            <input type="text" name="alamat" placeholder="Alamat" class="input-control" value="<?php echo $d->admin_addres ?>" required>
             <input type="submit" name="submit" value="Ubah Profile"class="btn">
             </form>
             </div>
