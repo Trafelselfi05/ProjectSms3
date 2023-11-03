@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'db.php';
 if($_SESSION['status_login']!= true) {
     echo '<script>window.location="login.php"</script>';
 }
@@ -42,6 +43,10 @@ if($_SESSION['status_login']!= true) {
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $kategori =mysqli_query($conn, "SELECT * FROM tb_category ORDER BY category_id DESC");
+                        while ($row = mysqli_fetch_array($kategori)) {
+                        ?>
                         <tr>
                             <td>1</td>
                             <td>xxx</td>
@@ -49,6 +54,7 @@ if($_SESSION['status_login']!= true) {
                                 <a href="">Edit</a> || <a href="">Delete</a>
                             </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

@@ -87,6 +87,12 @@ header ul li a {
     border-collapse: collapse;
     /* Tambahkan gaya lain yang Anda butuhkan di sini */
 }
+.tabel tr {
+    height: 30px;
+}
+.tabel tr td {
+    padding: 5px 10px;
+}
 
 
 
