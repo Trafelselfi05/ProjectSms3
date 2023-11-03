@@ -60,7 +60,9 @@ header ul li a {
     padding: 20px 0 20px 15px;
     display: inline-block;
 }
-
+.footer {
+    padding: 25px 0;
+}
 .container {
     width: 80%;
     margin: 0 auto;
@@ -80,6 +82,12 @@ header ul li a {
     box-sizing: border-box;
     margin: 10px 0 25px 0;
 }
+.tabel {
+    width: 100%;
+    border-collapse: collapse;
+    /* Tambahkan gaya lain yang Anda butuhkan di sini */
+}
+
 
 
 
