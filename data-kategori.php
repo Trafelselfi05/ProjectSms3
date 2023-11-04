@@ -35,7 +35,7 @@ if ($_SESSION['status_login'] != true) {
         <div class="container">
             <h3>Data Kategori</h3>
             <div class="box">
-                <p><a href="tambah-data.php">Tambah Data</a></p>
+                <p><a href="tambah-kategori.php">Tambah Data</a></p>
                 <table border="1" cellspacing="0" class="tabel">
                     <tr>
                         <th width="60px">No</th>

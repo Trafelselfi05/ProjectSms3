@@ -38,19 +38,22 @@ $d = mysqli_fetch_object($query);
             <h3>Tambah Data Kategori</h3>
             <div class="box">
                 <form action="" method="POST">
-                    <input type="text" name="nama" placeholder="Nama Lengkap" class="input-control"
-                        value="<?php echo $d->admin_name ?>" required>
-                    <input type="text" name="user" placeholder="Username" class="input-control"
-                        value="<?php echo $d->username ?>" required>
-                    <input type="text" name="hp" placeholder="No Handphone" class="input-control"
-                        value="<?php echo $d->admin_telp ?>" required>
-                    <input type="email" name="email" placeholder="Email" class="input-control"
-                        value="<?php echo $d->admin_email ?>" required>
-                    <input type="text" name="alamat" placeholder="Alamat" class="input-control"
-                        value="<?php echo $d->admin_addres ?>" required>
-                    <input type="submit" name="submit" value="Ubah Profile" class="btn">
+                    <input type="text" name="nama" placeholder="Nama Kategori" class="input-control" required>
+                    <input type="submit" name="submit" value="Submit" class="btn">
                 </form>
-               
+               <?php
+               if(isset($_POST['submit'])){
+                $nama = ucwords($_POST['nama']);
+                $insert = mysqli_query($conn, "INSERT INTO tb_category VALUES (
+                    null,
+                    '".$nama."')");
+                    if($insert){
+                        echo '<script>alert("Tambah Data Sukses")</script>';
+                    }else{
+                        echo 'gagal' .mysqli_error($conn);
+                    }
+               }
+               ?>
             </div>
 
            
