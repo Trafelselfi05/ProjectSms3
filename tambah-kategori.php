@@ -49,6 +49,7 @@ $d = mysqli_fetch_object($query);
                     '".$nama."')");
                     if($insert){
                         echo '<script>alert("Tambah Data Sukses")</script>';
+                        echo '<script>window.location="data-kategori.php"</script>';
                     }else{
                         echo 'gagal' .mysqli_error($conn);
                     }
